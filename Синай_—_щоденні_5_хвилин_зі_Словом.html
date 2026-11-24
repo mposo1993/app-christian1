@@ -448,8 +448,8 @@ const bal=()=>S.xp-S.sp,lk=(id,i)=>LS[id][i].p&&!S.un.includes(id+i);
 function row(id,i,sh){const l=LS[id][i],d=S.ls.includes(id+i),n=(l.x||l.q).length,k=lk(id,i);
   return `<button class="card topic" data-id="${id}" data-i="${i}"><span class="ic">${k?"🔒":d?"✅":"📜"}</span><span class="mid"><strong>${sh?TOP.find(t=>t.id===id).i+" ":""}${l.t}</strong><span style="color:var(--mut);font-size:14px">${k?"Відкрити за "+l.p+" XP":l.c.length+" картки, потім тест із "+n+" "+(n==1?"запитання":"запитань")}</span></span></button>`}
 function toast(m){const e=$("#toast");e.textContent=m;e.classList.remove("hide");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.add("hide"),2600)}
-function openTopic(id){const t=TOP.find(x=>x.id===id);$("#tt").textContent=t.i+" "+t.n;$("#ls").innerHTML=[...LS[id].keys()].sort((a,b)=>!!lk(id,a)-!!lk(id,b)).map(i=>row(id,i)).join("");setMode("topic")}
-function openShop(){const r=[];[1,0].forEach(w=>TOP.forEach(t=>LS[t.id].forEach((l,i)=>{if(l.p&&!!lk(t.id,i)===!!w)r.push(row(t.id,i,1))})));
+function openTopic(id){const t=TOP.find(x=>x.id===id);$("#tt").textContent=t.i+" "+t.n;$("#ls").innerHTML=[...LS[id].keys()].filter(i=>!lk(id,i)).map(i=>row(id,i)).join("");setMode("topic")}
+function openShop(){const r=[];TOP.forEach(t=>LS[t.id].forEach((l,i)=>{if(lk(t.id,i))r.push(row(t.id,i,1))}));
   $("#tt").textContent="🛒 Баланс: "+bal()+" XP";
   $("#ls").innerHTML=r.join("")||`<div class="card"><h2>Усі глави відкрито</h2><p>Ви відкрили весь доступний зміст.</p></div>`;setMode("topic")}
 function buy(id,i){const l=LS[id][i];if(!lk(id,i))return study(id,i);if(bal()<l.p){toast("Не вистачає "+(l.p-bal())+" XP. Пройдіть урок, щоб заробити.");return}
