@@ -31,3 +31,9 @@ npm run dev:frontend
 ## Деплой
 
 Vercel збирає `npm run build` у `frontend/dist`, а `api/*.js` стають серверними функціями.
+
+## Інфраструктура
+
+- Vercel: проєкт `synai` (команда TIPA), підключений до цього репозиторію
+- MongoDB Atlas: кластер `synai` (безкоштовний), база `synai`, колекція `progress`
+- Секрети (`MONGODB_URI`) лежать лише у змінних середовища Vercel, не в репозиторії
