@@ -605,7 +605,7 @@ $("#next").onclick=next;$("#x").onclick=()=>setMode("home");$("#back").onclick=(
   for(const n in IC){const by={};IC[n].forEach((r,y)=>[...r].forEach((c,x)=>{if(c!==".")(by[c]=by[c]||[]).push("M"+x+" "+y+"h1v1h-1z")}));
     SV[n]='<svg viewBox="0 0 8 8" aria-hidden="true">'+Object.keys(by).map(c=>'<path fill="'+P[c]+'" d="'+by[c].join("")+'"/>').join("")+"</svg>"}
   const RX=/(🕊\uFE0F?|[🔥⭐🛒🎨📖⛪🔒✅📜✨✓✕←✝📿]\uFE0F?)/u;
-  function fix(n){const t=n.nodeValue;if(!t||!RX.test(t))return;
+  function fix(n){if(!n.parentNode)return;const t=n.nodeValue;if(!t||!RX.test(t))return;
     const f=document.createDocumentFragment();
     t.split(RX).forEach(p=>{const k=EM[p.replace(/\uFE0F/g,"")];
       if(k){const s=document.createElement("span");s.className="pi";s.innerHTML=SV[k];f.appendChild(s)}else if(p)f.appendChild(document.createTextNode(p))});
