@@ -1,0 +1,56 @@
+<main>
+  <div class="top"><h1>Синай</h1><div class="chips"><span class="chip" id="cs"></span><span class="chip" id="cx"></span></div></div>
+
+  <section id="home">
+    <div class="stage"><span class="chip" id="lv"></span></div>
+    <div class="card">
+      <h2 id="goal"></h2><p id="sub"></p>
+      <div class="week" id="week"></div>
+      <button class="btn" id="daily">Вчити й перевірити себе, 5 хвилин</button>
+    </div>
+    <button class="card topic" id="vcard"><span class="ic">📜</span><span class="mid"><strong id="vr"></strong><span id="vt" style="color:var(--mut);font-size:14px"></span></span></button>
+    <button class="card topic" id="shopbtn"><span class="ic">🛒</span><span class="mid"><strong>Магазин глав</strong><span id="shopsub" style="color:var(--mut);font-size:14px"></span></span></button>
+    <button class="card topic" id="prbtn"><span class="ic">📿</span><span class="mid"><strong>Молитви й Розарій</strong><span style="color:var(--mut);font-size:14px">Читайте й отримуйте XP</span></span></button>
+    <button class="card topic" id="cosbtn"><span class="ic">🎨</span><span class="mid"><strong>Кастомізація хрестика</strong><span style="color:var(--mut);font-size:14px">Матеріал, форма, фон, анімація, ефекти</span></span></button>
+    <button class="card topic" id="stbtn"><span class="ic">⭐</span><span class="mid"><strong>Статистика й досягнення</strong><span style="color:var(--mut);font-size:14px">Прогрес, нагороди, звук</span></span></button>
+    <h2 class="sec">Теми</h2>
+    <div id="topics"></div>
+  </section>
+
+  <section id="topic" class="hide">
+    <div class="lh"><button class="x" id="tx" aria-label="Назад">←</button><h2 id="tt" style="font-size:22px"></h2></div>
+    <div class="pad"></div>
+    <div id="ls"></div>
+  </section>
+
+  <section id="study" class="hide">
+    <div class="lh"><button class="x" id="sx" aria-label="Закрити">✕</button><div class="bar"><b id="sb"></b></div></div>
+    <div class="pad"></div>
+    <div class="card"><p id="sk" style="font-size:14px"></p><h2 id="st" style="margin:4px 0 12px"></h2><p id="sc" style="color:var(--ink);font-size:18px;line-height:1.65"></p></div>
+    <button class="btn" id="snext">Далі</button>
+    <button class="btn hide" id="sskip" style="margin-top:10px;background:var(--card);color:var(--ink);box-shadow:none;border:1px solid var(--line)">Лише читати, без тесту</button>
+  </section>
+
+  <section id="lesson" class="hide">
+    <div class="lh"><button class="x" id="x" aria-label="Закрити урок">✕</button><div class="bar"><b id="pb"></b></div></div>
+    <div class="pad"></div>
+    <h2 id="q"></h2>
+    <div id="opts"></div>
+    <button class="btn hide" id="hint">Підказка 50/50 (−5 XP)</button>
+    <div class="fb hide" id="fb" aria-live="polite"></div>
+    <button class="btn hide" id="next">Далі</button>
+  </section>
+
+  <section id="done" class="hide">
+    <div class="stage"></div>
+    <div class="card" style="text-align:center">
+      <div class="big" id="dstreak"></div>
+      <h2 style="margin-top:8px">Урок завершено</h2>
+      <p id="res" style="margin-bottom:16px"></p>
+      <button class="btn" id="back">На головну</button>
+      <button class="btn" id="share">Поділитися серією</button>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="hide" role="status" style="position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:5;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-size:14px;text-align:center"></div>
